@@ -64,7 +64,7 @@ class ControllerUser {
             idToken: id_token,
             audience: process.env.CLIENT_ID
         }).then(ticket => {
-            const payload = ticket.payload()
+            const payload = ticket.getPayload()
             email = payload.email
             return User.findOne({where: {email: email}})
         }).then(user => {
@@ -85,6 +85,7 @@ class ControllerUser {
             })
             res.status(200).json({access_token: token})
         }).catch(err => {
+            console.log(err);
             next({message: err.message})
         })
         

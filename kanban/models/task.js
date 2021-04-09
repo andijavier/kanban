@@ -32,6 +32,14 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    priority: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'Priority is Required !'
+        }
+      }
+    },
     UserId: {
       type: DataTypes.INTEGER,
       validate: {

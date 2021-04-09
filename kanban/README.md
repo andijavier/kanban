@@ -72,12 +72,14 @@ not needed
 ```
 _Request Body_
 ```
-not needed
+{
+  "id_token": "<your id_token>"
+}
 ```
 _Response (200)_
 ```
 {
-  "access_token": ""<your access token>"",
+  "access_token": "<your access token>",
 }
 ```
 _Response (500)_
@@ -86,8 +88,8 @@ _Response (500)_
   "message": "<err.message>"
 }
 ```
-### GET /taks
-> Get all taks
+### GET /tasks
+> Get all tasks
 _Request Header_
 ```
 {

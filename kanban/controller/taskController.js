@@ -2,7 +2,7 @@ const { Task, User } = require('../models')
 
 class ControllerTask {
     static getTasks(req, res, next) {
-        Task.findAll()
+        Task.findAll({include: User})
             .then(data => {
                 res.status(200).json(data)
             })
@@ -36,6 +36,7 @@ class ControllerTask {
                 return Task.create({
                     title: req.body.title,
                     category: req.body.category,
+                    priority: req.body.priority,
                     UserId: userId,
                     OrganizationId: OrganizationId
                 })
@@ -53,6 +54,7 @@ class ControllerTask {
         let task = {
             title: req.body.title,
             category: req.body.category,
+            priority: req.body.priority,
         }
         Task.update(task, {where: {id: taskId}, returning: true})
             .then(data => {
