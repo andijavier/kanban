@@ -49,6 +49,8 @@ class ControllerUser {
                     } else {
                         next({name: 'Invalid Login'})
                     }
+                } else {
+                    next({name: 'Invalid Login'})
                 }
             })
             .catch(err => {
